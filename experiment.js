@@ -47,4 +47,3 @@ function Dog(age, weight, name) {
   
   dog2.bark();
 
-sasdSSS

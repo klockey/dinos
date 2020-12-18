@@ -46,3 +46,5 @@ function Dog(age, weight, name) {
   dog1.bark();
   
   dog2.bark();
+
+  // note

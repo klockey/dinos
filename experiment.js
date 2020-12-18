@@ -48,3 +48,5 @@ function Dog(age, weight, name) {
   dog2.bark();
 
   // notes 234567ghg6665uuuuhhjkkk
+
+  hhh

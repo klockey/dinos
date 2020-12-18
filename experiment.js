@@ -49,4 +49,4 @@ function Dog(age, weight, name) {
 
   // notes 234567ghg6665uuuuhhjkkk
 
-  hhh
+  hhh  jjj  ggg

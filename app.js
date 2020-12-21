@@ -13,32 +13,6 @@
 
 
     // Create Dino Objects
-
-  let dino = new dinosaur(1,2,3,4,5,6,7);
-   console.log(dino);
-
-   let nameInput = document.getElementById('name');
-   let feetInput = document.getElementById('feet');
-   let inchesInput = document.getElementById('inches');
-   let weightInput =  document.getElementById('weight');
-   let dietSelect = document.getElementById('diet'); 
-
-
-    // Create Human Object
-
-    function Human(nameInput,feetInput,inchesInput,weightInput,dietSelect){
-      this.name = nameInput;
-      this.feet = feetInput; 
-      this.inches = inchesInput;
-      this.weightInput = weightInput;
-      this.diet = dietSelect;
-     }
-//
-
-    let human = new Human(nameInput,feetInput,inchesInput,weightInput,dietSelect);
-
- 
-
    let buttonClick = document.getElementById('btn');
    buttonClick.onclick = function(){
 
@@ -63,17 +37,46 @@
 
     createDinos();
 
+ // Create Human Object
 
-    document.getElementById('dino-compare').style.visibility = "hidden"; 
+ function Human(nameInput,feetInput,inchesInput,weightInput,dietSelect){
+  this.name = nameInput;
+  this.feet = feetInput; 
+  this.inches = inchesInput;
+  this.weightInput = weightInput;
+  this.diet = dietSelect;
+ }
 
+ let nameInput = document.getElementById('name');
+ let feetInput = document.getElementById('feet');
+ let inchesInput = document.getElementById('inches');
+ let weightInput =  document.getElementById('weight');
+ let dietSelect = document.getElementById('diet'); 
+
+let human = new Human(nameInput,feetInput,inchesInput,weightInput,dietSelect);
+
+document.getElementById('dino-compare').style.visibility = "hidden"; 
 
     }
 
-  
-  //////
-//
+   
+
+   
 
 
+    let dino = new dinosaur(1,2,3,4,5,6,7);
+    console.log(dino);
+ 
+ 
+ 
+
+    // Create Dino Constructor
+
+
+    // Create Dino Objects
+
+
+    // Create Human Object
 
     // Use IIFE to get human data from form
 

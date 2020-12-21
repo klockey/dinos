@@ -1,6 +1,7 @@
 
    // Create Dino Constructor
 
+    dinosaur  = [];
     function dinosaur(species, weight, height, diet, where, when, fact){
         this.species = species;
         this.weight = weight;
@@ -25,20 +26,12 @@
         return data;
       };
      
-      const createDinos = async () => {
-         dinos = await getDinoData(); // will return dino array
-       // return dinos;
+      
 
-       dinos.Dinos.forEach(dino => {
-        console.log(dino.species);
-      });
-
-      }
-
-    createDinos();
 
  // Create Human Object
 
+ 
  function Human(nameInput,feetInput,inchesInput,weightInput,dietSelect){
   this.name = nameInput;
   this.feet = feetInput; 
@@ -47,27 +40,54 @@
   this.diet = dietSelect;
  }
 
- let nameInput = document.getElementById('name');
- let feetInput = document.getElementById('feet');
- let inchesInput = document.getElementById('inches');
- let weightInput =  document.getElementById('weight');
- let dietSelect = document.getElementById('diet'); 
+let human  = (function () {
+ let nameInput = document.getElementById('name').value;
+ let feetInput = document.getElementById('feet').value;
+ let inchesInput = document.getElementById('inches').value;
+ let weightInput =  document.getElementById('weight').value;
+ let dietSelect = document.getElementById('diet').value; 
 
-let human = new Human(nameInput,feetInput,inchesInput,weightInput,dietSelect);
+return new Human(nameInput,feetInput,inchesInput,weightInput,dietSelect);
 
-document.getElementById('dino-compare').style.visibility = "hidden"; 
-
-    }
-
-   
-
-    
+})();
 
 
-    let dino = new dinosaur(1,2,3,4,5,6,7);
-    console.log(dino);
- 
- 
+const createDinos = async () => {
+  dinos = await getDinoData(); // will return dino array
+// return dinos;
+
+herbavor = []; 
+omnivoir = [];
+carnivor = [];
+
+dinos.Dinos.forEach(dino => {
+//   console.log(dino.species);
+if (dino.diet == 'herbavor'){
+    herbavor.push(dino);
+}else if(dino.diet == 'omnivor'){
+    omnivor.push(dino);
+}else if(dino.diet == 'carnivor'){
+    carnivor.push(dino);
+}
+});
+
+
+console.log(herbavor);
+}
+
+//Math.floor(Math.random() * arr.length)
+
+
+createDinos();
+
+//console.log(human);
+
+// document.getElementById('dino-compare').style.visibility = "hidden"; 
+
+}
+
+    // let dino = new dinosaur(1,2,3,4,5,6,7);
+    // console.log(dino);
  
 
     // Create Dino Constructor

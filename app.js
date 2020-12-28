@@ -21,6 +21,7 @@
         const fetchedData = await fetch("./dino.json");
         const data = await fetchedData.json();
         //console.log(data);
+ //       console.log("hello");
         return data;
       };
 
@@ -47,42 +48,32 @@ dinos = await getDinoData(); // will return dino array
 
 
 // return dinos;
-let herbavor = []; 
-let omnivor = [];
-let carnivor = [];
-let herbavorObject = {name: "", type: "", weight: "", height:""};
-let omnivorObject = {name: "", type: "", weight: "", height:""};
-let carnivorObject = {name: "", type: "", weight: "", height:""};
+let dinosaur = []; 
 
+let dinosaurObject = {species: "", diet: "", weight: "", height:""};
 
+let diet = document.getElementById('diet').value;
+
+let count = 0;
 
 dinos.Dinos.forEach(dino => {
-if (dino.diet == "herbavor"){
-  herbavorObject.name = dino.name;
-  herbavorObject.type = dino.species;
-  herbavorObject.weight = compareWeight(dino.weight);
-  herbavorObject.height = compareHeight(dino.height);
-  herbavor.push(herbavorObject);
-}else if(dino.diet == "omnivor"){
-  omnivorObject.name = dino.name;
-  omnivorObject.type = dino.species;
-  omnivorObject.weight = compareWeight(dino.weight);
-  omnivorObject.height = compareHeight(dino.height);
-  omnivor.push(dino);
-}else if(dino.diet == "carnivor"){
-  carnivorObject.name = dino.name;
-  carnivorObject.type = dino.species;
-  carnivorObject.weight = compareWeight(dino.weight);
-  carnivorObject.height = compareHeight(dino.height);
-  carnivor.push(dino);
-}
+  if (diet.toLowerCase() == dino.diet){
+    dinosaurObject.species = dino.species;
+    dinosaur[count] = dinosaurObject;
+    count++;
+  }
+  
+  console.log(dinosaur);
+
 });
 
-console.log(carnivorObject);
+
+dinosaur.forEach(a => {
+console.log("dinosaur object " + a.name);
+});
 
 
 function compareWeight(weight){
- // console.log(weight);
   if (human.weight > weight)
      return "Human weight is greater than ";
   else if (human.weight < weight)
@@ -100,9 +91,15 @@ function compareHeight(height) {
      return "Human Height is equal";
 }
 
+function compareDiet(diet) {
+  if (human.diet == diet)
+     return "Human diet is same";
+  return "Human diet is different";
+}
+
+
 document.getElementById('dino-compare').style.visibility = "hidden"; 
 
-//console.log(dinos.Dinos);
 
 (function () {
     dinos.Dinos.forEach(dino => {
@@ -121,7 +118,7 @@ function changeLowerCase(word) {
   return word.toLowerCase();
 }
 
-console.log(herbavor);
+
 }
 
 createDinos();

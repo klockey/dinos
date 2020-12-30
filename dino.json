@@ -30,7 +30,7 @@
         {
             "species": "Brachiosaurus",
             "weight": 70000,
-            "height": "372",
+            "height": 372,
             "diet": "herbavor",
             "where": "North America",
             "when": "Late Jurasic",
@@ -67,7 +67,7 @@
             "species": "Pigeon",
             "weight": 0.5,
             "height": 9,
-            "diet": "herbavor",
+            "diet": "herbavore",
             "where": "World Wide",
             "when": "Holocene",
             "fact": "All birds are living dinosaurs."

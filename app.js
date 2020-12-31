@@ -42,30 +42,8 @@ let dietSelect = document.getElementById("diet").value;
 
  let human = new Human(nameInput,feetInput,inchesInput,weightInput,dietSelect); 
 
-
-//console.log(human.species)
-
-
 const createDinos = async () => {
 dinos = await getDinoData();          // will return dino array
-
-
-
-// return dinos;
-// let dinosaur = []; 
-// let dinosaurObject = {species: "", diet: "", weight: "", height:""};
-// let diet = document.getElementById('diet').value;
-
-// dinos.Dinos.forEach(dino => {
-//   if (diet.toLowerCase() == dino.diet){
-//     dinosaurObject.species = dino.species;
-//     dinosaurObject.diet = dino.diet;
-//     dinosaurObject.weight = dino.weight;
-//     dinosaurObject.height = dino.height;
-//     dinosaur.push(Object.assign({}, dinosaurObject)); 
-//   }
-// });
-
 
 
 let cnt =0;
@@ -106,8 +84,6 @@ function compareDiet(diet) {
 
 document.getElementById('dino-compare').style.visibility = "hidden"; 
 
-let count = 0;
-let filler;
 const grid = document.querySelector("#grid");
 
 const getRandomFact = () => {

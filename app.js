@@ -23,48 +23,53 @@
         return data;
       };
 
-      
+ 
+let nameInput = document.getElementById("name").value;
+let feetInput = document.getElementById("feet").value;
+let inchesInput = document.getElementById("inches").value;
+let weightInput =  document.getElementById("weight").value;
+let dietSelect = document.getElementById("diet").value; 
+           
+
  // Create Human Object
- function Human(species,feet,inches,weight,diet){
-  this.species = species;
+ function Human(name,feet,inches,weight,diet){
+  this.species = "Human";
+  this.name = name;
   this.height = (12 * feet)  + inches;  
   this.weight = weight;
   this.diet = diet;
  }
 
-//  let human  = (function () {
-//  let nameInput = document.getElementById("name").value;
-//  let feetInput = document.getElementById("feet").value;
-//  let inchesInput = document.getElementById("inches").value;
-//  let weightInput =  document.getElementById("weight").value;
-//  let dietSelect = document.getElementById("diet").value; 
-//  return new Human(nameInput,feetInput,inchesInput,weightInput,dietSelect);
-// })();
+ let human = new Human(nameInput,feetInput,inchesInput,weightInput,dietSelect); 
+
+
+//console.log(human.species)
+
 
 const createDinos = async () => {
-dinos = await getDinoData(); // will return dino array
+dinos = await getDinoData();          // will return dino array
 
-let dinosaurs = [];
+
 
 // return dinos;
-let dinosaur = []; 
-let dinosaurObject = {species: "", diet: "", weight: "", height:""};
-let diet = document.getElementById('diet').value;
+// let dinosaur = []; 
+// let dinosaurObject = {species: "", diet: "", weight: "", height:""};
+// let diet = document.getElementById('diet').value;
 
-dinos.Dinos.forEach(dino => {
-  //console.log(dino.species);
-  if (diet.toLowerCase() == dino.diet){
-    dinosaurObject.species = dino.species;
-    dinosaurObject.diet = dino.diet;
-    dinosaurObject.weight = dino.weight;
-    dinosaurObject.height = dino.height;
-    dinosaur.push(Object.assign({}, dinosaurObject)); 
-  }
-});
+// dinos.Dinos.forEach(dino => {
+//   if (diet.toLowerCase() == dino.diet){
+//     dinosaurObject.species = dino.species;
+//     dinosaurObject.diet = dino.diet;
+//     dinosaurObject.weight = dino.weight;
+//     dinosaurObject.height = dino.height;
+//     dinosaur.push(Object.assign({}, dinosaurObject)); 
+//   }
+// });
+
+
 
 let cnt =0;
-
-let human = new Human("Human","","","","");
+let dinosaurs = [];
 
 dinos.Dinos.forEach(dino => {
 if (cnt == 4){
@@ -74,8 +79,6 @@ dinosaurs.push(dino);
 cnt++;
 });
 
-
-// console.log(dinosaur);
 
 function compareWeight(weight){
   if (human.weight > weight)
@@ -121,21 +124,14 @@ const getRandomFact = () => {
   return fact;
 };
 
-function getKeyByValue(object, value) { 
-  for (var prop in object) { 
-      if (object.hasOwnProperty(prop)) { 
-          if (object[prop] === value) 
-          return prop; 
-      } 
-  } 
-} 
-
 //let randomfact =  getRandomFact();
 let fact="";
 
 (function () {
     dinosaurs.forEach(dino => {   
       
+   // console.log(dino.species);
+
     let randomfact = getRandomFact();
 
     if (randomfact == "compareWeight" ){
@@ -148,14 +144,11 @@ let fact="";
       fact = dino[randomfact];
     }
 
-  
-    console.log(fact);
-
     if (dino.species == 'Human'){
       grid.innerHTML += `
       <div class="grid-item">
           <h3> ${dino.species} </h3>
-          <img src="images/${changeLowerCase(dino.species)+'.png'}" alt="" />
+          <img src="images/human.png" alt="" />
           <div> </div> 
           <div> </div>
        </div>`;
@@ -181,7 +174,6 @@ let fact="";
 
 
 function changeLowerCase(word) {
- // console.log(word);
   return word.toLowerCase();
 }
 
@@ -192,42 +184,3 @@ createDinos();
 }
 
 
-    //  Math.floor(Math.random() * arr.length)
-     //console.log(human);
- 
-
-    // let dino = new dinosaur(1,2,3,4,5,6,7);
-    // console.log(dino);
- 
-
-    // Create Dino Constructor
-
-
-    // Create Dino Objects
-
-
-    // Create Human Object
-
-    // Use IIFE to get human data from form
-
-
-    // Create Dino Compare Method 1
-    // NOTE: Weight in JSON file is in lbs, height in inches. 
-
-    
-    // Create Dino Compare Method 2
-    // NOTE: Weight in JSON file is in lbs, height in inches.
-
-    
-    // Create Dino Compare Method 3
-    // NOTE: Weight in JSON file is in lbs, height in inches.
-
-
-    // Generate Tiles for each Dino in Array
-  
-        // Add tiles to DOM
-
-    // Remove form from screen
-
-
-// On button click, prepare and display infographic

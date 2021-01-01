@@ -9,6 +9,7 @@
  * @param {string} fact
  */
 function dinosaur(species, weight, height, diet, where, when, fact) {
+  //this.name="";
   this.species = species;
   this.weight = weight;
   this.height = height;
@@ -66,7 +67,7 @@ buttonClick.onclick = function () {
     dinos = await getDinoData();
 
     let cnt = 0;
-    let dinosaurs = [];
+    const dinosaurs = [];
 
     /**
      * make a new dinosaur array with 8 dinosaur objects and 1 human object making 9 new objects
@@ -147,13 +148,13 @@ buttonClick.onclick = function () {
     };
 
     let fact = "";
-
+    let species = "";
     /**
      * function determines tiles placement and characteristics
      */
     (function () {
       dinosaurs.forEach((dino) => {
-        let randomfact = getRandomFact();
+        const randomfact = getRandomFact();
 
         if (dino.species == "Human") {
           fact = "";
@@ -168,7 +169,15 @@ buttonClick.onclick = function () {
         } else {
           fact = dino[randomfact];
         }
-        grid.innerHTML += returnGrid(dino.species, fact);
+
+        if (dino.species == "Human") {
+          species = dino.name;
+          speciespic = dino.species;
+        } else {
+          species = dino.species;
+          speciespic = dino.species;
+        }
+        grid.innerHTML += returnGrid(species, speciespic, fact);
       });
     })();
 
@@ -177,12 +186,12 @@ buttonClick.onclick = function () {
      * @param {string} species
      * @param {string} fact
      */
-    function returnGrid(species, fact) {
+    function returnGrid(species, speciespic, fact) {
       return `
       <div class="grid-item">
-          <h3> ${species} </h3>
+          <h3> ${species}  </h3>
           <img src="images/${
-            changeLowerCase(species) + ".png"
+            changeLowerCase(speciespic) + ".png"
           }" alt="" />       
           <div id="fact" style="text-align:center; width:100%; white-space: nowrap; overflow: hidden;">${fact} </div> 
        </div>`;

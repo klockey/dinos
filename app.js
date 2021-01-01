@@ -63,13 +63,13 @@ buttonClick.onclick = function () {
    *  function to get dino object
    */
   const createDinos = async () => {
-    dinos = await getDinoData(); 
+    dinos = await getDinoData();
 
     let cnt = 0;
     let dinosaurs = [];
 
     /**
-     * make a new dinosaur array with 8 dinosaur objects and 1 human object making 9 new objects 
+     * make a new dinosaur array with 8 dinosaur objects and 1 human object making 9 new objects
      */
     dinos.Dinos.forEach((dino) => {
       if (cnt == 4) {
